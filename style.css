@@ -81,7 +81,9 @@ button {
 }
 
 .container {
-  padding-inline: 6rem;
+  /* padding-inline: 6rem; */
+  max-width: min(90%, 1280px);
+  margin-inline: auto;
 }
 
 .btn {
@@ -114,6 +116,28 @@ button {
   margin-block-start: 50px;
 }
 
+.nav {
+  background-color: rgba(238, 232, 170, 0.376);
+  position: fixed;
+  top: 0;
+  left: -360px;
+  bottom: 0;
+  width: 100%;
+  max-width: 360px;
+  transition: 600ms ease-in-out;
+}
+
+.nav.active {
+  transform: translateX(360px);
+}
+
+@media (min-width: 575px) {
+  .nav,
+  .nav.active {
+    all: unset;
+  }
+}
+
 .navbar-list {
   display: flex;
   gap: 40px;
@@ -135,4 +159,8 @@ button {
 .nav-btn-container {
   display: flex;
   gap: 40px;
+}
+
+.nav-open-btn {
+  background-color: red;
 }
