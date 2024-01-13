@@ -1,0 +1,138 @@
+:root {
+  /* color */
+  --white: #fff;
+  --deep-purple: #302c42;
+
+  /* font */
+  --fontFamily-montserrat: "Montserrat", "Roboto", sans-serif;
+
+  /* font-size */
+  --fontSize-sm: 12px;
+  --fontSize-body: 1rem;
+  --fontSize-headline: 2.5rem;
+  --fontSize-gradient-text: 3rem;
+
+  /* font weight */
+  --font-thin: 300;
+  --font-regular: 400;
+  --font-bold: 700;
+
+  /* others */
+  --border-40: 40px;
+
+  /* liner-gradient */
+  --text-gradient: linear-gradient(269deg, #c0b7e8 -3.72%, #8176af 82.17%);
+  --btn-gradient: linear-gradient(90deg, #8176af 0%, #c0b7e8 100%);
+}
+
+/* ---------------------------------- */
+/*              reset               */
+/* ---------------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 12px;
+}
+
+body {
+  background-color: var(--deep-purple);
+  font-family: var(--fontFamily-montserrat);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ---------------------------------- */
+/*              reset               */
+/* ---------------------------------- */
+/* ---------------------------------- */
+/*              reset               */
+/* ---------------------------------- */
+
+/* ---------------------------------- */
+/*              utilities             */
+/* ---------------------------------- */
+.gradient-text {
+  background: var(--text-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.container {
+  padding-inline: 6rem;
+}
+
+.btn {
+  padding: 1rem 2.4rem;
+  font-size: var(--fontSize-sm);
+  border-radius: var(--border-40);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  background: var(--btn-gradient);
+}
+
+.btn-primary {
+  color: var(--deep-purple);
+}
+
+.btn-secondary {
+  color: var(--white);
+  background: none;
+  border: 2px solid var(--white);
+}
+
+.header {
+  /* background-color: bisque; */
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-start: 50px;
+}
+
+.navbar-list {
+  display: flex;
+  gap: 40px;
+}
+
+.logo-container {
+  max-width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-item {
+  text-transform: uppercase;
+  font-weight: var(--font-bold);
+  color: var(--white);
+}
+
+.nav-btn-container {
+  display: flex;
+  gap: 40px;
+}
