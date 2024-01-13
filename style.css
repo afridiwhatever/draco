@@ -47,6 +47,7 @@ body {
 }
 
 a {
+  display: block;
   text-decoration: none;
   color: inherit;
 }
@@ -56,6 +57,8 @@ li {
 }
 
 button {
+  display: block;
+  background: none;
   font: inherit;
   outline: none;
   border: none;
@@ -63,10 +66,7 @@ button {
 }
 
 /* ---------------------------------- */
-/*              reset               */
-/* ---------------------------------- */
-/* ---------------------------------- */
-/*              reset               */
+/*              reset                 */
 /* ---------------------------------- */
 
 /* ---------------------------------- */
@@ -80,8 +80,10 @@ button {
   color: transparent;
 }
 
+.text-center {
+  text-align: center;
+}
 .container {
-  /* padding-inline: 6rem; */
   max-width: min(90%, 1280px);
   margin-inline: auto;
 }
@@ -105,9 +107,9 @@ button {
   border: 2px solid var(--white);
 }
 
-.header {
-  /* background-color: bisque; */
-}
+/* ---------------------------------- */
+/*              header                */
+/* ---------------------------------- */
 
 .header .container {
   display: flex;
@@ -116,31 +118,22 @@ button {
   margin-block-start: 50px;
 }
 
-.nav {
-  background-color: rgba(238, 232, 170, 0.376);
-  position: fixed;
-  top: 0;
-  left: -360px;
-  bottom: 0;
-  width: 100%;
-  max-width: 360px;
-  transition: 600ms ease-in-out;
-}
-
-.nav.active {
-  transform: translateX(360px);
-}
-
-@media (min-width: 575px) {
-  .nav,
-  .nav.active {
-    all: unset;
-  }
+.nav > *:not(.navbar-list) {
+  display: none;
 }
 
 .navbar-list {
   display: flex;
-  gap: 40px;
+  gap: 30px;
+}
+
+.nav-open-btn {
+  display: none;
+}
+
+.nav-btn-container {
+  display: flex;
+  gap: 30px;
 }
 
 .logo-container {
@@ -156,11 +149,69 @@ button {
   color: var(--white);
 }
 
-.nav-btn-container {
-  display: flex;
-  gap: 40px;
+@media (max-width: 992px) {
+  .nav {
+    background-color: #302c4274;
+    position: fixed;
+    top: -100%;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    transition: 600ms ease-in-out;
+  }
+
+  .header .nav > * {
+    display: block;
+  }
+
+  .header .navbar-list {
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    max-width: max-content;
+    margin-inline: auto;
+    margin-block-start: 2rem;
+  }
+
+  .nav.active {
+    transform: translateY(100%);
+  }
+
+  .header .container.nav-active .nav-open-btn {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .nav-open-btn {
+    display: block;
+    transition: 400ms ease-out;
+  }
+
+  .nav-close-btn {
+    margin-inline-start: auto;
+    margin-inline-end: 5.8vw;
+    margin-block-start: 7.3vh;
+  }
+
+  .nav-close-btn span {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .nav-btn-container {
+    margin-inline-start: auto;
+    margin-inline-end: 30px;
+  }
+
+  .mobile-nav-logo {
+    max-width: max-content;
+    margin-inline: auto;
+    margin-block-start: 8vh;
+  }
 }
 
-.nav-open-btn {
-  background-color: red;
+@media (max-width: 768px) {
+  .nav-btn-container {
+    display: none;
+  }
 }
