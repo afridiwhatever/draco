@@ -8,9 +8,9 @@
 
   /* font-size */
   --fontSize-sm: 12px;
-  --fontSize-body-text: calc(0.6rem + 0.5vw);
-  --fontSize-headline: calc(1.6rem + 1vw);
-  --fontSize-gradient-text: calc(2rem + 1vw);
+  --fontSize-body-text: 0.9vw;
+  --fontSize-headline: 2.8rem;
+  --fontSize-gradient-text: 3.3rem;
 
   /* font weight */
   --font-thin: 300;
@@ -18,10 +18,15 @@
   --font-bold: 700;
 
   /* lineheight and letterspacing */
-  --lineheight1: 1.5em;
+  --lineheight-body-text: 1.5em;
 
   /* others */
   --border-40: 40px;
+
+  /* transition */
+  --transition-1: 250ms ease;
+  --transition-2: 500ms ease;
+  --transition-3: 1000ms ease;
 
   /* liner-gradient */
   --text-gradient: linear-gradient(269deg, #c0b7e8 -3.72%, #8176af 82.17%);
@@ -48,12 +53,7 @@ body {
   background-color: var(--deep-purple);
   font-family: var(--fontFamily-montserrat);
   color: var(--white);
-  width: 100%;
   overflow-x: hidden;
-}
-
-main {
-  width: 100vw;
 }
 
 a {
@@ -67,9 +67,9 @@ li {
 }
 
 button {
+  font: inherit;
   display: block;
   background: none;
-  font: inherit;
   outline: none;
   border: none;
   cursor: pointer;
@@ -90,7 +90,7 @@ button {
 .section-desc {
   font-size: var(--fontSize-body-text);
   font-weight: var(--font-regular);
-  line-height: var(--lineheight1);
+  line-height: var(--lineheight-body-text);
 }
 
 .gradient-text {
@@ -111,12 +111,12 @@ button {
 }
 
 .btn {
-  padding: 1rem 2.4rem;
   font-size: var(--fontSize-sm);
-  border-radius: var(--border-40);
   font-weight: var(--font-bold);
   text-transform: uppercase;
+  padding: 1rem 2.4rem;
   background: var(--btn-gradient);
+  border-radius: var(--border-40);
 }
 
 .btn-primary {
@@ -126,7 +126,7 @@ button {
 .btn-secondary {
   color: var(--white);
   background: none;
-  border: 2px solid var(--white);
+  border: 1.5px solid var(--white);
 }
 
 /* ---------------------------------- */
@@ -140,8 +140,16 @@ button {
   margin-block-start: 50px;
 }
 
-.nav > *:not(.navbar-list) {
+.nav > *:not(.navbar-list),
+.nav .nav-btn-container {
   display: none;
+}
+
+.logo-container {
+  max-width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .navbar-list {
@@ -158,13 +166,6 @@ button {
   gap: 30px;
 }
 
-.logo-container {
-  max-width: max-content;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
 .nav-item {
   text-transform: uppercase;
   font-weight: var(--font-bold);
@@ -173,13 +174,17 @@ button {
 
 @media (max-width: 1120px) {
   .nav {
-    background-color: #302c42d5;
     position: fixed;
     top: -100%;
     left: 0px;
+    right: 0px;
     height: 100%;
-    width: 100%;
-    transition: 600ms ease-in-out;
+    background-color: #302c42eb;
+    transition: var(--transition-2);
+  }
+
+  .nav.active {
+    transform: translateY(100%);
   }
 
   .header .nav > * {
@@ -195,10 +200,6 @@ button {
     margin-block-start: 2rem;
   }
 
-  .nav.active {
-    transform: translateY(100%);
-  }
-
   .header .container.nav-active .nav-open-btn {
     opacity: 0;
     visibility: hidden;
@@ -206,12 +207,12 @@ button {
 
   .nav-open-btn {
     display: block;
-    transition: 400ms ease-out;
+    transition: var(--transition-2);
   }
 
   .nav-close-btn {
     margin-inline-start: auto;
-    margin-inline-end: 5.8vw;
+    margin-inline-end: 10vw;
     margin-block-start: 10vh;
   }
 
@@ -236,6 +237,26 @@ button {
   .nav-btn-container {
     display: none;
   }
+
+  .navbar-list .nav-btn-container {
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .header .logo-container svg {
+    transform: scale(0.7);
+  }
+
+  .header .container {
+    margin-block-start: 30px;
+  }
+
+  .header .logo-container {
+    gap: 0px;
+  }
 }
 
 /* ---------------------------------- */
@@ -243,34 +264,31 @@ button {
 /* ---------------------------------- */
 .hero .container {
   display: flex;
-  /* flex-wrap: no-wrap; */
 }
 
-.hero .container .left-section {
+.hero .container .hero-content {
   max-width: 450px;
-  margin-inline-end: auto;
   padding-block-start: 2rem;
-  flex-shrink: 2;
-  /* background-color: limegreen; */
+  margin-inline-end: auto;
 }
 
-.left-section h1 {
+.hero-content h1 {
   font-size: var(--fontSize-headline);
   font-weight: var(--font-bold);
   color: var(--white);
   margin-block-end: 2.5rem;
 }
 
-.left-section h1 span {
+.hero-content h1 span {
   font-size: var(--fontSize-gradient-text);
   font-weight: var(--font-bold);
 }
 
-.left-section .call-to-action-container {
+.hero-content .call-to-action-container {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding-block-start: 4rem;
+  gap: 10px;
+  padding-block-start: 2rem;
   cursor: pointer;
 }
 
@@ -278,7 +296,6 @@ button {
   background: rgba(0, 0, 0, 0.13);
   padding: 14px;
   border-radius: 100px 100px 100px 240px;
-
   align-self: flex-start;
 }
 
@@ -296,34 +313,58 @@ button {
   :root {
     --fontSize-headline: calc(1.6rem + 2vw);
     --fontSize-gradient-text: calc(2rem + 2vw);
-    --fontSize-body-text: calc(0.6rem + 1vw);
+    --fontSize-body-text: 1.2rem;
+    --lineheight-body-text: 1.8em;
   }
 
-  .hero {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .section.hero {
     padding-block: 20px;
   }
+
   .hero .container {
     flex-direction: column;
+  }
+
+  .hero .container .hero-content {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+  }
+
+  .hero-content .call-to-action-container .btn {
+    width: 100%;
+    padding-block: 1.5rem;
+  }
+
+  .hero-content .call-to-action-container svg {
+    display: none;
   }
 
   .hero .container .right-section {
     order: 1;
     margin-inline: auto;
   }
+}
 
-  .hero .container .left-section {
-    order: 2;
+@media (max-width: 576px) {
+  :root {
+    --fontSize-headline: calc(1.2rem + 2vw);
+    --fontSize-gradient-text: calc(1.6rem + 2vw);
+    --fontSize-body-text: 1rem;
+    --lineheight-body-text: 1.8em;
+  }
+
+  .hero-content h1 {
     margin-inline: auto;
-    display: flex;
-    flex-direction: column;
   }
 
-  .left-section .call-to-action-container .btn {
-    width: 100%;
-    padding-block: 1.5rem;
-  }
-
-  .left-section .call-to-action-container svg {
-    display: none;
+  .hero-content p {
+    text-align: center;
+    max-width: 280px;
   }
 }
