@@ -7,13 +7,15 @@
   --ff-montserrat: "Montserrat", "Roboto", sans-serif;
 
   /* font-size */
-  --fs-h1: 3.6rem;
+  --fs-h1: 3.8rem;
+  --fs-h2: 3.6rem;
   --fs-h3: 1.8rem;
   --fs-body: 1.6rem;
   --fs-xs: 1.2rem;
   --fs-gradient-text: 4.6rem;
 
   /* font weight */
+  --fw-xt: 100;
   --fw-thin: 300;
   --fw-regular: 400;
   --fw-bold: 700;
@@ -87,6 +89,13 @@ li {
   list-style: none;
 }
 
+img {
+  display: block;
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
+
 address {
   all: unset;
 }
@@ -124,6 +133,10 @@ button {
 
 .text-center {
   text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
 }
 
 .container {
@@ -446,4 +459,65 @@ button {
     font-weight: var(--fw-bold);
     margin-block-end: 8px;
   }
+}
+
+/* ---------------------------------- */
+/*              about                 */
+/* ---------------------------------- */
+
+.about .introduction-and-why-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 80px;
+}
+
+.introduction-and-why-container .left {
+  position: relative;
+  min-width: 40%;
+}
+
+.about .container h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  line-height: 1.4;
+}
+
+.about .container h2 span {
+  font-weight: var(--fw-xt);
+}
+
+.introduction-and-why-container .left .svg-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  bottom: -25%;
+  font-weight: var(--fw-xt);
+}
+
+.introduction-and-why-container .left .svg-container svg:last-child {
+  margin-left: -30px;
+}
+
+.about .about-container {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  margin-block: 10em;
+}
+
+.about-container .left.img-container {
+  min-width: 45%;
+  border-radius: 240px 100px;
+  background: #a3a3a3;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.about-container .right p {
+  padding-block: 2.5em;
+}
+
+.about-container .right button {
+  font-size: var(--fs-body);
 }
