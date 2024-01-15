@@ -470,6 +470,7 @@ button {
   display: flex;
   align-items: flex-end;
   gap: 80px;
+  background-color: red;
 }
 
 .introduction-and-why-container .left {
@@ -533,16 +534,15 @@ button {
     display: none;
   }
 
-  .introduction-and-why-container .left {
-    margin-inline: auto;
-    text-align: center;
+  .introduction-and-why-container {
+    background-color: green !important;
   }
 
   .about .about-container {
     flex-direction: column;
   }
 
-  .about .about-container .right {
-    max-width: max-content;
+  .about .about-container .right button {
+    margin-inline: auto;
   }
 }
