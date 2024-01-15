@@ -1,24 +1,25 @@
 :root {
   /* color */
-  --white: #fff;
-  --deep-purple: #302c42;
+  --clr-white: #fff;
+  --clr-deep-purple: #302c42;
 
   /* font */
-  --fontFamily-montserrat: "Montserrat", "Roboto", sans-serif;
+  --ff-montserrat: "Montserrat", "Roboto", sans-serif;
 
   /* font-size */
-  --fontSize-sm: 12px;
-  --fontSize-body-text: 0.9vw;
-  --fontSize-headline: 2.8rem;
-  --fontSize-gradient-text: 3.3rem;
+  --fs-h1: 3.6rem;
+  --fs-h3: 1.8rem;
+  --fs-body: 1.6rem;
+  --fs-xs: 1.2rem;
+  --fs-gradient-text: 4.6rem;
 
   /* font weight */
-  --font-thin: 300;
-  --font-regular: 400;
-  --font-bold: 700;
+  --fw-thin: 300;
+  --fw-regular: 400;
+  --fw-bold: 700;
 
   /* lineheight and letterspacing */
-  --lineheight-body-text: 1.5em;
+  --lh-body: 1.6;
 
   /* others */
   --border-40: 40px;
@@ -31,6 +32,26 @@
   /* liner-gradient */
   --text-gradient: linear-gradient(269deg, #c0b7e8 -3.72%, #8176af 82.17%);
   --btn-gradient: linear-gradient(90deg, #8176af 0%, #c0b7e8 100%);
+}
+
+/* tablet - custom properties */
+@media (max-width: 992px) {
+  :root {
+    --fs-h1: 3.6rem;
+    --fs-h3: 1.8rem;
+    --fs-body: 1.5rem;
+    --fs-gradient-text: 4.6rem;
+  }
+}
+
+/* smartphone - custom properties  */
+@media (max-width: 576px) {
+  :root {
+    --fs-h1: 2.6rem;
+    --fs-h3: 1.5rem;
+    --fs-body: 1.2rem;
+    --fs-gradient-text: 3.6rem;
+  }
 }
 
 /* ---------------------------------- */
@@ -46,13 +67,13 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 body {
-  background-color: var(--deep-purple);
-  font-family: var(--fontFamily-montserrat);
-  color: var(--white);
+  background-color: var(--clr-deep-purple);
+  font-family: var(--ff-montserrat);
+  color: var(--clr-white);
   overflow-x: hidden;
 }
 
@@ -66,6 +87,10 @@ li {
   list-style: none;
 }
 
+address {
+  all: unset;
+}
+
 button {
   font: inherit;
   display: block;
@@ -76,21 +101,17 @@ button {
 }
 
 /* ---------------------------------- */
-/*              reset                 */
-/* ---------------------------------- */
-
-/* ---------------------------------- */
 /*              utilities             */
 /* ---------------------------------- */
 
 .section {
-  padding-block: 70px;
+  padding-block-start: 80px;
 }
 
 .section-desc {
-  font-size: var(--fontSize-body-text);
-  font-weight: var(--font-regular);
-  line-height: var(--lineheight-body-text);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
 }
 
 .gradient-text {
@@ -106,27 +127,27 @@ button {
 }
 
 .container {
-  width: min(80%, 1280px);
+  width: min(80%, 1250px);
   margin-inline: auto;
 }
 
 .btn {
-  font-size: var(--fontSize-sm);
-  font-weight: var(--font-bold);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
   text-transform: uppercase;
-  padding: 1rem 2.4rem;
+  padding: 1em 2.5em;
   background: var(--btn-gradient);
   border-radius: var(--border-40);
 }
 
 .btn-primary {
-  color: var(--deep-purple);
+  color: var(--clr-deep-purple);
 }
 
 .btn-secondary {
-  color: var(--white);
+  color: var(--clr-white);
   background: none;
-  border: 1.5px solid var(--white);
+  border: 1.5px solid var(--clr-white);
 }
 
 /* ---------------------------------- */
@@ -136,8 +157,13 @@ button {
 .header .container {
   display: flex;
   justify-content: space-between;
+  padding-block-start: 2em;
   align-items: center;
-  margin-block-start: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--clr-deep-purple);
 }
 
 .nav > *:not(.navbar-list),
@@ -157,8 +183,11 @@ button {
   gap: 30px;
 }
 
-.nav-open-btn {
-  display: none;
+.nav-item {
+  text-transform: uppercase;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-bold);
+  color: var(--clr-white);
 }
 
 .nav-btn-container {
@@ -166,13 +195,12 @@ button {
   gap: 30px;
 }
 
-.nav-item {
-  text-transform: uppercase;
-  font-weight: var(--font-bold);
-  color: var(--white);
+.nav-open-btn {
+  display: none;
 }
 
-@media (max-width: 1120px) {
+/* special breakpoint */
+@media (max-width: 1250px) {
   .nav {
     position: fixed;
     top: -100%;
@@ -213,7 +241,7 @@ button {
   .nav-close-btn {
     margin-inline-start: auto;
     margin-inline-end: 10vw;
-    margin-block-start: 10vh;
+    margin-block-start: 7vh;
   }
 
   .nav-close-btn span {
@@ -233,7 +261,11 @@ button {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
   .nav-btn-container {
     display: none;
   }
@@ -248,10 +280,15 @@ button {
 @media (max-width: 576px) {
   .header .logo-container svg {
     transform: scale(0.7);
+    margin-inline-start: -15px;
+  }
+
+  .container {
+    width: 90%;
   }
 
   .header .container {
-    margin-block-start: 30px;
+    padding-block-start: 10px;
   }
 
   .header .logo-container {
@@ -262,33 +299,34 @@ button {
 /* ---------------------------------- */
 /*              hero                  */
 /* ---------------------------------- */
-.hero .container {
+.hero .top-container {
   display: flex;
+  margin-block-start: 100px;
 }
 
 .hero .container .hero-content {
-  max-width: 450px;
-  padding-block-start: 2rem;
+  max-width: 460px;
   margin-inline-end: auto;
+  align-self: center;
 }
 
 .hero-content h1 {
-  font-size: var(--fontSize-headline);
-  font-weight: var(--font-bold);
-  color: var(--white);
-  margin-block-end: 2.5rem;
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+  color: var(--clr-white);
+  margin-block-end: 0.7em;
 }
 
 .hero-content h1 span {
-  font-size: var(--fontSize-gradient-text);
-  font-weight: var(--font-bold);
+  font-size: var(--fs-gradient-text);
+  font-weight: var(--fw-bold);
 }
 
 .hero-content .call-to-action-container {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding-block-start: 2rem;
+  padding-block-start: 2em;
   cursor: pointer;
 }
 
@@ -309,23 +347,50 @@ button {
   width: 100%;
 }
 
+.hero-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  padding: 2em;
+  margin-block-start: max(6vh, 6vw);
+  border-radius: 90px;
+  background: radial-gradient(
+    2900.76% 50.13% at 50% 53.89%,
+    rgba(58, 52, 86, 0.95) 0%,
+    #211e2e 100%
+  );
+  box-shadow: 0px 4px 4px 0px rgba(192, 183, 232, 0.01);
+}
+
+.hero-card-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  padding-block: 1em;
+}
+
+.hero-card-item-content h3 {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  margin-block-end: 8px;
+}
+
+.hero-card-item-content > *:is(address, span) {
+  font-size: var(--fs-xs);
+}
+
+.hero-card-item:nth-of-type(2) {
+  width: 100%;
+  border-inline: 1px solid rgba(192, 183, 232, 0.33);
+}
+
 @media (max-width: 992px) {
-  :root {
-    --fontSize-headline: calc(1.6rem + 2vw);
-    --fontSize-gradient-text: calc(2rem + 2vw);
-    --fontSize-body-text: 1.2rem;
-    --lineheight-body-text: 1.8em;
-  }
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
-
   .section.hero {
     padding-block: 20px;
   }
 
-  .hero .container {
+  .hero .top-container {
     flex-direction: column;
   }
 
@@ -338,7 +403,7 @@ button {
 
   .hero-content .call-to-action-container .btn {
     width: 100%;
-    padding-block: 1.5rem;
+    padding-block: 1.5em;
   }
 
   .hero-content .call-to-action-container svg {
@@ -349,22 +414,36 @@ button {
     order: 1;
     margin-inline: auto;
   }
+
+  .hero-card {
+    max-width: 550px;
+    margin-inline: auto;
+    grid-template-columns: 1fr;
+  }
+  .hero-card-item:nth-of-type(2),
+  .hero-card-item:nth-of-type(3) {
+    display: none;
+  }
 }
 
 @media (max-width: 576px) {
-  :root {
-    --fontSize-headline: calc(1.2rem + 2vw);
-    --fontSize-gradient-text: calc(1.6rem + 2vw);
-    --fontSize-body-text: 1rem;
-    --lineheight-body-text: 1.8em;
-  }
-
   .hero-content h1 {
     margin-inline: auto;
   }
 
   .hero-content p {
-    text-align: center;
     max-width: 280px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .hero-card {
+    padding-block: 1em;
+  }
+
+  .hero-card-item-content h3 {
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-bold);
+    margin-block-end: 8px;
   }
 }
