@@ -176,6 +176,7 @@ button {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 4;
   background-color: var(--clr-deep-purple);
 }
 
@@ -520,4 +521,28 @@ button {
 
 .about-container .right button {
   font-size: var(--fs-body);
+}
+
+@media (max-width: 992px) {
+  .about
+    .container
+    .introduction-and-why-container
+    > *
+    :is(.section-desc, .svg-container),
+  .right h2 {
+    display: none;
+  }
+
+  .introduction-and-why-container .left {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .about .about-container {
+    flex-direction: column;
+  }
+
+  .about .about-container .right {
+    max-width: max-content;
+  }
 }
