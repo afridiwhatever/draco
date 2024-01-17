@@ -81,6 +81,10 @@ body {
   overflow-x: hidden;
 }
 
+h2 {
+  font-size: var(--fs-h2);
+}
+
 h3 {
   font-size: var(--fs-h3);
 }
@@ -173,13 +177,13 @@ button {
 /* utilities media queries */
 @media (max-width: 992px) {
   .section {
-    margin-block-start: 60px;
+    padding-block-start: 60px;
   }
 }
 
 @media (max-width: 576px) {
   .section {
-    margin-block-start: 40px;
+    padding-block-start: 40px;
   }
 }
 
@@ -658,4 +662,27 @@ button {
     grid-template-columns: repeat(1, 1fr);
     margin-block-start: 4em;
   }
+}
+
+/* ---------------------------------- */
+/*     technologies and hardware      */
+/* ---------------------------------- */
+
+.technologies-and-hardware .tech-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 160px;
+  box-shadow: 0px 4px 4px 0px rgba(192, 183, 232, 0.01);
+  background: url("images/pexels-rodnae-productions-8097332\ 1.png"),
+    lightgray 50% / cover no-repeat;
+}
+
+.tech-bg h2 {
+  padding-block: 3em;
+  text-align: center;
+}
+
+.tech-bg h2 span {
+  font-weight: var(--fw-xt);
 }
