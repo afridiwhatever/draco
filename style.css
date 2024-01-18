@@ -501,13 +501,13 @@ button {
 /*              about                 */
 /* ---------------------------------- */
 
-.about .introduction-and-why-container {
+:is(.about, .how-we-build) .header-arrow-desc-container {
   display: flex;
   align-items: flex-end;
   gap: 80px;
 }
 
-.introduction-and-why-container .left {
+:is(.about, .how-we-build) .header-arrow-desc-container .left {
   position: relative;
   min-width: 40%;
 }
@@ -518,11 +518,11 @@ button {
   line-height: 1.4;
 }
 
-.about .container h2 span {
+:is(.about, .how-we-build) .header-arrow-desc-container h2 span {
   font-weight: var(--fw-xt);
 }
 
-.introduction-and-why-container .left .svg-container {
+:is(.about, .how-we-build) .header-arrow-desc-container .svg-container {
   display: flex;
   align-items: center;
   position: absolute;
@@ -531,7 +531,11 @@ button {
   font-weight: var(--fw-xt);
 }
 
-.introduction-and-why-container .left .svg-container svg:last-child {
+:is(.about, .how-we-build)
+  .header-arrow-desc-container
+  .left
+  .svg-container
+  svg:last-child {
   margin-left: -30px;
 }
 
@@ -554,11 +558,15 @@ button {
   padding-block: 2.5em;
 }
 
+.about-container .right h2 span {
+  font-weight: var(--fw-xt);
+}
+
 .about-container .right button {
   font-size: var(--fs-body);
 }
 
-.use-case-container {
+.four-element-grid-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1em;
@@ -621,11 +629,13 @@ button {
 /* about media queries */
 
 @media (max-width: 992px) {
-  .about .introduction-and-why-container :is(.svg-container, .section-desc) {
+  :is(.about, .how-we-build)
+    .header-arrow-desc-container
+    :is(.svg-container, .section-desc) {
     display: none;
   }
 
-  .about .container :is(.left, h2) {
+  :is(.about, .how-we-build) :is(.left, .right) {
     margin-inline: auto;
     text-align: center;
   }
@@ -640,7 +650,7 @@ button {
     margin-inline: auto;
   }
 
-  .use-case-container {
+  .four-element-grid-list {
     grid-template-columns: repeat(2, 1fr);
     margin-block-start: 6em;
   }
@@ -657,7 +667,7 @@ button {
     border-radius: 140px 60px;
   }
 
-  .use-case-container {
+  .four-element-grid-list {
     grid-template-columns: repeat(1, 1fr);
     margin-block-start: 4em;
     gap: 2em;
@@ -728,4 +738,11 @@ button {
   .partners-logo-container {
     display: none;
   }
+}
+
+/* ---------------------------------- */
+/*             how we build           */
+/* ---------------------------------- */
+.how-we-build .header-arrow-desc-container .svg-container {
+  right: -10%;
 }
