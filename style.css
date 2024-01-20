@@ -10,6 +10,7 @@
   --fs-h1: 3.8rem;
   --fs-h2: 3.6rem;
   --fs-h3: 2.6rem;
+  --fs-h4: 2.2rem;
   --fs-body: 1.6rem;
   --fs-xs: 1.2rem;
   --fs-gradient-text: 4.6rem;
@@ -42,6 +43,7 @@
     --fs-h1: 3.6rem;
     --fs-h2: 3.3rem;
     --fs-h3: 1.8rem;
+    --fs-h4: 1.6rem;
     --fs-body: 1.5rem;
     --fs-gradient-text: 4.6rem;
   }
@@ -53,6 +55,7 @@
     --fs-h1: 2.6rem;
     --fs-h2: 2.3rem;
     --fs-h3: 1.5rem;
+    --fs-h4: 1.3rem;
     --fs-body: 1.2rem;
     --fs-gradient-text: 3.6rem;
   }
@@ -87,6 +90,10 @@ h2 {
 
 h3 {
   font-size: var(--fs-h3);
+}
+
+h4 {
+  font-size: var(--fs-h4);
 }
 
 a {
@@ -745,4 +752,48 @@ button {
 /* ---------------------------------- */
 .how-we-build .header-arrow-desc-container .svg-container {
   right: -10%;
+}
+
+.how-we-build .four-element-grid-list {
+  padding-inline: 4rem;
+  gap: 3em;
+  position: relative;
+}
+
+.step-card {
+  padding: 1em;
+}
+
+.step-card-banner .outer {
+  width: 70%;
+  aspect-ratio: 1/1;
+  padding: 1.5rem;
+  background: rgba(13, 13, 13, 0.32);
+  border-radius: 50%;
+  margin-inline: auto;
+}
+
+.step-card-banner .inner {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  font-size: 7em;
+  font-weight: var(--fw-bold);
+  color: var(--clr-deep-purple);
+  background: linear-gradient(251deg, #c0b7e8 12.87%, #8176af 89.33%);
+  border-radius: 50%;
+}
+
+.step-card-content {
+  padding-block-start: 2em;
+  display: flex;
+  align-items: center;
+}
+
+.how-we-build .four-element-grid-list > svg {
+  position: absolute;
+  left: -7%;
+  z-index: -1;
+  flex-shrink: 1;
 }
