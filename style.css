@@ -42,8 +42,8 @@
   :root {
     --fs-h1: 3.6rem;
     --fs-h2: 3.3rem;
-    --fs-h3: 1.8rem;
-    --fs-h4: 1.6rem;
+    --fs-h3: 2.2rem;
+    --fs-h4: 2rem;
     --fs-body: 1.5rem;
     --fs-gradient-text: 4.6rem;
   }
@@ -575,7 +575,7 @@ button {
 
 .four-element-grid-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1em;
   margin-block-start: 8em;
 }
@@ -755,13 +755,12 @@ button {
 }
 
 .how-we-build .four-element-grid-list {
-  padding-inline: 4rem;
-  gap: 3em;
+  gap: 2em;
   position: relative;
 }
 
 .step-card {
-  padding: 1em;
+  min-width: 250px;
 }
 
 .step-card-banner .outer {
@@ -789,11 +788,43 @@ button {
   padding-block-start: 2em;
   display: flex;
   align-items: center;
+  max-width: 80%;
+  margin-inline: auto;
 }
 
-.how-we-build .four-element-grid-list > svg {
+.step-card-content h4 {
+  font-size: 2.2rem;
+}
+
+.build-bg {
   position: absolute;
-  left: -7%;
-  z-index: -1;
-  flex-shrink: 1;
+  height: 100%;
+  width: 120%;
+  margin-inline: auto;
+  background: url(svg/how-buildd-bg.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  top: 50px;
+  left: -10%;
+}
+
+@media (max-width: 992px) {
+  .step-card-banner .outer {
+    width: 60%;
+  }
+
+  .build-bg {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .step-card-banner .outer {
+    width: 45%;
+  }
+
+  .step-card-content {
+    padding-left: 10%;
+  }
 }
