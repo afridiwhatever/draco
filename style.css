@@ -218,7 +218,6 @@ textarea {
 .header .container {
   display: flex;
   justify-content: space-between;
-  padding-block-start: 2em;
   align-items: center;
   position: fixed;
   top: 0;
