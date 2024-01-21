@@ -32,9 +32,14 @@
   --transition-2: 500ms ease;
   --transition-3: 1000ms ease;
 
-  /* liner-gradient */
+  /* gradient */
   --text-gradient: linear-gradient(269deg, #c0b7e8 -3.72%, #8176af 82.17%);
   --btn-gradient: linear-gradient(90deg, #8176af 0%, #c0b7e8 100%);
+  --card-radial-gradient: radial-gradient(
+    50% 50% at 50% 50%,
+    #433d60 0%,
+    #211e2e 100%
+  );
 }
 
 /* tablet - custom properties */
@@ -124,6 +129,13 @@ button {
   outline: none;
   border: none;
   cursor: pointer;
+}
+
+input,
+textarea {
+  display: block;
+  font: inherit;
+  outline: none;
 }
 
 /* ---------------------------------- */
@@ -584,7 +596,7 @@ button {
   padding: 2.5em;
   padding-block-end: 4em;
   border-radius: 40px;
-  background: radial-gradient(50% 50% at 50% 50%, #433d60 0%, #211e2e 100%);
+  background: var(--card-radial-gradient);
 }
 
 .card-banner {
@@ -827,4 +839,63 @@ button {
   .step-card-content {
     padding-left: 10%;
   }
+}
+
+/* ---------------------------------- */
+/*                contact             */
+/* ---------------------------------- */
+
+.input-field {
+  min-height: 70px;
+  min-width: 100%;
+  color: var(--clr-white);
+  font-size: 14px;
+  padding-inline: 40px;
+  margin-block-end: 30px;
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 40px;
+}
+
+textarea.input-field {
+  resize: none;
+  padding-block-start: 20px;
+}
+
+.input-field::placeholder {
+  color: inherit;
+  font-weight: var(--fw-xt);
+}
+
+.input-field:focus {
+  border: 2px solid #b9b0e1;
+}
+
+.contact .container {
+  padding: 6em 9em;
+  border-radius: 100px;
+  background: var(--card-radial-gradient);
+}
+
+.contact .form-line {
+  margin-block-start: 2em;
+  margin-block-end: 3em;
+}
+
+.contact p {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-xt);
+  margin-block-end: 70px;
+}
+
+.contact-form button {
+  margin-block-start: 40px;
+  margin-inline: auto;
+  transform: scale(1.2);
+}
+
+.contact .input-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2em;
 }
