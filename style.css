@@ -948,7 +948,7 @@ textarea.input-field {
   z-index: -1;
 }
 
-.footer-bg-line:nth-of-type(1) {
+.footer-bg-line:nth-child(1) {
   top: -110%;
   background: url(images/footer-top-line.svg);
   background-size: contain;
@@ -957,7 +957,7 @@ textarea.input-field {
   transform: scale(1.7);
 }
 
-.footer-bg-line:nth-of-type(2) {
+.footer-bg-line:nth-child(2) {
   background: url(images/footer-center-line.svg);
   background-size: contain;
   background-repeat: no-repeat;
@@ -965,9 +965,16 @@ textarea.input-field {
   transform: scale(1.3);
 }
 
+.footer-bg-line:last-child {
+  height: 2px;
+  bottom: -25%;
+  background: url(images/footer-bottom-line.svg);
+}
+
 .footer .container {
   display: flex;
   justify-content: space-between;
+  margin-block-end: 10em;
 }
 
 .footer-image-container {
@@ -1005,4 +1012,14 @@ textarea.input-field {
 .footer-social-container .icon-container img {
   height: 32px;
   width: 32px;
+}
+
+.footer p {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-bold);
+  letter-spacing: 1.2px;
+}
+
+.footer p a {
+  display: inline-block;
 }
