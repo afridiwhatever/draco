@@ -198,6 +198,10 @@ textarea {
   .section {
     padding-block-start: 60px;
   }
+
+  .container {
+    width: 94%;
+  }
 }
 
 @media (max-width: 576px) {
@@ -340,9 +344,9 @@ textarea {
     margin-inline-start: -15px;
   }
 
-  .container {
+  /* .container {
     width: 90%;
-  }
+  } */
 
   .header .container {
     padding-block-start: 10px;
@@ -663,6 +667,8 @@ textarea {
     flex-direction: column;
     gap: 6em;
     margin-block: 6em;
+    max-width: 80%;
+    margin-inline: auto;
   }
 
   .about .about-container .right button {
@@ -882,6 +888,10 @@ textarea.input-field {
   margin-block-end: 3em;
 }
 
+.contact .form-line svg {
+  max-width: 100%;
+}
+
 .contact p {
   font-size: var(--fs-h2);
   font-weight: var(--fw-xt);
@@ -898,4 +908,25 @@ textarea.input-field {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 2em;
+}
+
+@media (max-width: 992px) {
+  .contact .container {
+    padding-inline: 5em;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact .container {
+    padding: 4em 1.5em;
+    border-radius: 40px;
+  }
+
+  .contact .input-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .contact p {
+    margin-block-end: 30px;
+  }
 }
