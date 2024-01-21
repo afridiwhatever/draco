@@ -116,6 +116,7 @@ img {
   height: auto;
   width: 100%;
   object-fit: cover;
+  pointer-events: none;
 }
 
 address {
@@ -301,8 +302,8 @@ textarea {
 
   .nav-close-btn {
     margin-inline-start: auto;
-    margin-inline-end: 10vw;
-    margin-block-start: 7vh;
+    margin-inline-end: 25px;
+    margin-block-start: 55px;
   }
 
   .nav-close-btn span {
@@ -563,6 +564,7 @@ textarea {
 }
 
 .about .about-container {
+  position: relative;
   display: flex;
   gap: 80px;
   align-items: center;
@@ -648,7 +650,29 @@ textarea {
   margin-inline: auto;
   padding-block: 1.3em;
 }
-/* about media queries */
+
+.about-bg-line {
+  position: absolute;
+  height: 100%;
+  width: 150%;
+  z-index: -1;
+}
+
+.about-bg-line:nth-of-type(3) {
+  background: url(images/about-top-line.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: -25%;
+}
+
+.about-bg-line:last-child {
+  background: url(images/about-bottom-line.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: -25%;
+  bottom: -50%;
+}
+
 /* about media queries */
 
 @media (max-width: 992px) {
@@ -946,6 +970,7 @@ textarea.input-field {
   height: 100%;
   width: 100%;
   z-index: -1;
+  background: transparent;
 }
 
 .footer-bg-line:nth-child(1) {
@@ -969,6 +994,8 @@ textarea.input-field {
   height: 2px;
   bottom: -25%;
   background: url(images/footer-bottom-line.svg);
+  background-size: contain;
+  background-position: center;
 }
 
 .footer .container {
@@ -986,6 +1013,7 @@ textarea.input-field {
 .footer-separator {
   width: 4px;
   height: 185px;
+  margin-inline: 2em;
   background: url("images/footer-separator.svg");
 }
 
@@ -1012,9 +1040,12 @@ textarea.input-field {
 .footer-social-container .icon-container img {
   height: 32px;
   width: 32px;
+  cursor: pointer;
 }
 
 .footer p {
+  max-width: 90%;
+  margin-inline: auto;
   font-size: var(--fs-body);
   font-weight: var(--fw-bold);
   letter-spacing: 1.2px;
@@ -1022,4 +1053,36 @@ textarea.input-field {
 
 .footer p a {
   display: inline-block;
+}
+
+@media (max-width: 992px) {
+  .footer :is(.footer-link-container, .footer-separator) {
+    display: none;
+  }
+
+  .footer .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-image-container {
+    transform: scale(0.8);
+  }
+
+  .footer-social-container {
+    text-align: center;
+  }
+
+  .footer-social-container button {
+    margin-inline: auto;
+  }
+
+  .icon-container {
+    gap: 1em;
+    margin-block: 2.5em;
+  }
+
+  .footer-bg-line:nth-child(1) {
+    top: 20%;
+  }
 }
